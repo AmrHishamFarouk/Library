@@ -6,28 +6,28 @@ function book (title,author,pagesno,readed){
     this.pagesno = pagesno;
     this.readed = readed;
 }
-let book1 = new book('bo7irat','amr',255,true);
-Mylibrary.push(book1);
-let book2 = new book('zeko','amr',285,false);
-Mylibrary.push(book2);
-let book3 = new book('e7m','amr',252,true);
-Mylibrary.push(book3);
 
+// addBookToLibrary('bo7irat','amr',255,true); 
+// addBookToLibrary('zeko','amr',285,false);
+// addBookToLibrary('e7m','amr',252,true); 
 
-Mylibrary.forEach(function(e){
-
-    // loop in Array;
-
-})
+// console.log(Mylibrary);
+// Mylibrary.forEach(function(e){
+//     console.log(e);
+// })
 
 function updateLibrary(){
+    //clears the current library
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(function(e){
+        e.remove();
+    })
     Mylibrary.forEach(function(e){
         console.log(e);
     })
 }
 
-function addBookToLibrary() {
-    let newbook = new book(title,author,pagesno,readed);
-    Mylibrary.push(newbook);
-
+function addBookToLibrary(title,author,pagesno,readed) {
+    //add book to array
+    Mylibrary.push(new book(title,author,pagesno,readed));
 }

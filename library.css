@@ -13,6 +13,7 @@ margin: 0;
     margin: 0;
     text-align: center;
     align-self: center;
+    font-size: clamp(60px,80%,400px);
 }
 .addBooks{
     background-color: white;
