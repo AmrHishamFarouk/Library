@@ -15,16 +15,20 @@ function book (title,author,pagesno,readed){
 // Mylibrary.forEach(function(e){
 //     console.log(e);
 // })
-
+   
 function updateLibrary(){
     //clears the current library
-    let cards = document.querySelectorAll('.card');
-    cards.forEach(function(e){
-        e.remove();
-    })
+    let books = document.querySelector('.books');
+    books.remove();
+    
     Mylibrary.forEach(function(e){
         console.log(e);
     })
+}
+
+function makeCard(){
+    let library = document.querySelector('.books');
+
 }
 
 function addBookToLibrary(title,author,pagesno,readed) {
