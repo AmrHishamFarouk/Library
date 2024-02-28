@@ -21,8 +21,28 @@ function updateLibrary(){
     let books = document.querySelector('.books');
     books.remove();
     
+
     Mylibrary.forEach(function(e){
-        console.log(e);
+
+        let card = document.createElement('div');
+        card.classList.add('card');
+        let title = document.createElement('h1');
+        title.textContent = e.title;
+        let author = document.createElement('h2');
+        author.textContent  =  e.author;
+        let pageno = document.createElement('h2');
+        pageno.textContent = e.pagesno;
+        let states = document.createElement('h2');
+        states.textContent = e.readed;
+        let delbtn = document.createElement('button');
+        delbtn.classList.add('deletebtn');
+        delbtn.textContent = 'Remove Book'
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pageno);
+        card.appendChild(states);
+        card.appendChild(delbtn);
+        
     })
 }
 
