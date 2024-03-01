@@ -7,12 +7,14 @@ function book (title,author,pagesno,readed){
     this.readed = readed;
 }
 
-addBookToLibrary('bo7irat','amr',255,true); 
-addBookToLibrary('zeko','amr',285,false);
-addBookToLibrary('e7m','amr',252,true); 
+addBookToArray('bo7irat','amr',255,true); 
+addBookToArray('zeko','amr',285,false);
+addBookToArray('e7m','amr',252,true); 
+
 
 updateLibrary();
-   
+
+
 function updateLibrary(){
     //clears the current library
     document.querySelector('.books').remove();
@@ -48,15 +50,10 @@ function makeCard(name,writer,pages,readed){
         card.appendChild(pageno);
         card.appendChild(states);
         card.appendChild(delbtn);
+        return card;
 }
 
-function addBookToLibrary(title,author,pagesno,readed) {
+function addBookToArray(title,author,pagesno,readed) {
     //add book to array
     Mylibrary.push(new book(title,author,pagesno,readed));
 }
-
-
-
-
-
-
