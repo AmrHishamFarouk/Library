@@ -47,3 +47,27 @@ button{
     border-radius: 0.5rem;
     padding: 0.5em 1em;
 }
+button:active{
+    background-color: black;
+    border: solid 2px white;
+    border-radius: 0.5rem;
+    padding: 0.5em 1em;
+    color: white;
+}
+form{
+    /* border: 3px solid black;
+    border-radius: 1em;
+    padding: 1em; */
+    width: 450px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+.modal{
+    border: 0;
+    box-shadow: 0 0 1em rgb(0, 0, 0 /.3);
+}
+.modal ::backdrop{
+    background: rgb(0, 0, 0 / 0.4);
+}

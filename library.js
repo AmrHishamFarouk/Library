@@ -57,3 +57,20 @@ function addBookToArray(title,author,pagesno,readed) {
     //add book to array
     Mylibrary.push(new book(title,author,pagesno,readed));
 }
+
+let openform = document.querySelector('.addBooks');
+let modal = document.querySelector('.modal');
+openform.addEventListener('click',()=>{
+    modal.showModal();
+})
+
+let closemodal = document.querySelector('.closemodal');
+console.log(closemodal)
+closemodal.addEventListener('click',(e)=>{
+    e.preventDefault();
+    let name = document.getElementsByName('book-title');
+    console.log(name.value);
+})
+
+let deletebtn = document.querySelectorAll('.deletebtn');
+//alllllllllllllllllllllllllllllllll
