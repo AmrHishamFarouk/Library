@@ -41,15 +41,19 @@ function makeCard(name,writer,pages,readed){
         let pageno = document.createElement('h2');
         pageno.textContent = pages;
         let states = document.createElement('h2');
-        states.textContent = readed;
+        states.textContent = readed? 'readed' : 'not readed';
+        let readbtn = document.createElement('button');
+        readbtn.classList.add('readed');
+        readbtn.textContent = 'readed';
         let delbtn = document.createElement('button');
         delbtn.classList.add('deletebtn');
-        delbtn.textContent = 'Remove Book'
+        delbtn.textContent = 'Remove Book';
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pageno);
         card.appendChild(states);
         card.appendChild(delbtn);
+        card.appendChild(readbtn);
         return card;
 }
 
@@ -68,9 +72,16 @@ let closemodal = document.querySelector('.closemodal');
 console.log(closemodal)
 closemodal.addEventListener('click',(e)=>{
     e.preventDefault();
+    //this act like  query select all
     let name = document.getElementsByName('book-title');
-    console.log(name.value);
+    console.log(name);
+
 })
 
 let deletebtn = document.querySelectorAll('.deletebtn');
 //alllllllllllllllllllllllllllllllll
+
+let readedbtn = document.querySelectorAll('.readed');
+//allllllllll
+
+console.log(readedbtn);
