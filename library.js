@@ -64,17 +64,27 @@ function addBookToArray(title,author,pagesno,readed) {
 
 let openform = document.querySelector('.addBooks');
 let modal = document.querySelector('.modal');
+
 openform.addEventListener('click',()=>{
     modal.showModal();
 })
 
 let closemodal = document.querySelector('.closemodal');
 console.log(closemodal)
-closemodal.addEventListener('click',(e)=>{
+let newBookForm = document.querySelector('#newBookForm');
+
+newBookForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     //this act like  query select all
     let name = document.getElementsByName('book-title');
-    console.log(name);
+    console.log(name[0].value);
+    let writer = document.getElementsByName('book-writer');
+    console.log(writer[0].value);
+    let pageno = document.getElementsByName('pageno');
+    console.log(pageno[0].value);
+    let checkbox = document.getElementsByName('checkbox');
+    console.log(checkbox);
+    modal.close()
 
 })
 

@@ -10,7 +10,7 @@
 <body>
     
     <dialog class="modal" id="modal">
-        <form method="dialog" action="">
+        <form action="" method="dialog" id="newBookForm">
             <h3 for="book-title">Title</h3>
             <input type="text" name="book-title" id='title' required>
             <h3 for="writer">Author</h3>
@@ -18,7 +18,7 @@
             <h3>number of pages</h3>
             <input type="number" name="pageno" required>
             <h3 for="readed">Readed</h3>
-            <input type="checkbox" id="readed" name="readed">
+            <input type="checkbox" id="readed" name="readed" value=true>
             <button class="closemodal" type="submit">Add book</button>
         </form>
     </dialog>
