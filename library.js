@@ -84,7 +84,9 @@ newBookForm.addEventListener('submit',(e)=>{
     console.log(pageno[0].value);
     let checkbox = document.getElementsByName('checkbox');
     console.log(checkbox);
-    modal.close()
+    addBookToArray(name[0].value,writer[0].value,pageno[0].value,true); 
+    updateLibrary();
+    modal.close();
 
 })
 
