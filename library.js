@@ -92,6 +92,11 @@ newBookForm.addEventListener('submit',(e)=>{
 
 let deletebtn = document.querySelectorAll('.deletebtn');
 //alllllllllllllllllllllllllllllllll
+deletebtn.forEach((btn) =>{
+    btn.addEventListener('click',()=>{
+        console.log('delete');
+    })
+});
 
 let readedbtn = document.querySelectorAll('.readed');
 //allllllllll
