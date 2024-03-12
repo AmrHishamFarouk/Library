@@ -14,6 +14,10 @@ addBookToArray('e7m','amr',252,true);
 
 updateLibrary();
 
+function addBookToArray(title,author,pagesno,readed) {
+    //add book to array
+    Mylibrary.push(new book(title,author,pagesno,readed));
+}
 
 function updateLibrary(){
     //clears the current library
@@ -57,10 +61,6 @@ function makeCard(name,writer,pages,readed){
         return card;
 }
 
-function addBookToArray(title,author,pagesno,readed) {
-    //add book to array
-    Mylibrary.push(new book(title,author,pagesno,readed));
-}
 
 let openform = document.querySelector('.addBooks');
 let modal = document.querySelector('.modal');
@@ -82,23 +82,28 @@ newBookForm.addEventListener('submit',(e)=>{
     console.log(writer[0].value);
     let pageno = document.getElementsByName('pageno');
     console.log(pageno[0].value);
-    let checkbox = document.getElementsByName('checkbox');
+    //not working
+    let checkbox = document.getElementsByName('readed');
+    let states = checkbox.checked == true ? 'readed' : 'not readed'
     console.log(checkbox);
-    addBookToArray(name[0].value,writer[0].value,pageno[0].value,true); 
+    addBookToArray(name[0].value,writer[0].value,pageno[0].value,states); 
     updateLibrary();
     modal.close();
 
 })
 
+
 let deletebtn = document.querySelectorAll('.deletebtn');
-//alllllllllllllllllllllllllllllllll
 deletebtn.forEach((btn) =>{
     btn.addEventListener('click',()=>{
         console.log('delete');
     })
 });
 
-let readedbtn = document.querySelectorAll('.readed');
-//allllllllll
 
-console.log(readedbtn);
+let readedbtn = document.querySelectorAll('.readed');
+readedbtn.forEach((btn) =>{
+    btn.addEventListener('click',()=>{
+        console.log('readed');
+    })
+});
