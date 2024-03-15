@@ -37,18 +37,18 @@ function updateLibrary(){
 
 function makeCard(name,writer,pages,readed){
         let card = document.createElement('div');
-        card.classList.add('card');
         let title = document.createElement('h1');
-        title.textContent = name;
         let author = document.createElement('h2');
-        author.textContent  =  writer;
         let pageno = document.createElement('h2');
-        pageno.textContent = pages;
         let states = document.createElement('h2');
-        states.textContent = readed? 'readed' : 'not readed';
         let readbtn = document.createElement('button');
+        card.classList.add('card');
+        title.textContent = name;
+        author.textContent  =  writer;
+        pageno.textContent = pages;
+        states.textContent = readed == true ? 'readed' : 'not readed';
         readbtn.classList.add('readed');
-        readbtn.textContent = 'readed';
+        readbtn.textContent = readed == true ? 'not readed' : 'readed';
         let delbtn = document.createElement('button');
         delbtn.classList.add('deletebtn');
         delbtn.textContent = 'Remove Book';
@@ -81,29 +81,34 @@ newBookForm.addEventListener('submit',(e)=>{
     let writer = document.getElementsByName('book-writer');
     console.log(writer[0].value);
     let pageno = document.getElementsByName('pageno');
-    console.log(pageno[0].value);
     //not working
-    let checkbox = document.getElementsByName('readed');
-    let states = checkbox.checked == true ? 'readed' : 'not readed'
-    console.log(checkbox);
-    addBookToArray(name[0].value,writer[0].value,pageno[0].value,states); 
+    let checkbox = document.getElementsByName('book-readed');
+    
+    addBookToArray(name[0].value,writer[0].value,pageno[0].value,checkbox[0].checked); 
     updateLibrary();
     modal.close();
-
 })
 
 
 let deletebtn = document.querySelectorAll('.deletebtn');
-deletebtn.forEach((btn) =>{
+deletebtn.forEach((btn,index) =>{
     btn.addEventListener('click',()=>{
-        console.log('delete');
+
+        Mylibrary.splice(index,1);
+        updateLibrary();
+
     })
 });
+//how to get the element order from the foreach methode
 
-
+book.prototype.toggleRead = function(){
+    this.readed = !this.readed;
+}
 let readedbtn = document.querySelectorAll('.readed');
-readedbtn.forEach((btn) =>{
+readedbtn.forEach((btn,index) =>{
     btn.addEventListener('click',()=>{
+        Mylibrary[index].toggleRead();
+        updateLibrary();
         console.log('readed');
     })
 });
