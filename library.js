@@ -29,22 +29,41 @@ function updateLibrary(){
     Mylibrary.forEach(function(e){
         let card = makeCard(e.title,e.author,e.pagesno,e.readed);
         books.appendChild(card); 
-    })
+        })
+        
+        let container = document.querySelector('.container');
+        container.appendChild(books);
 
-    let container = document.querySelector('.container');
-    container.appendChild(books);
+//to make the read button work
+        let readedbtn = document.querySelectorAll('.readed');
+        readedbtn.forEach((btn,index) =>{
+            btn.addEventListener('click',()=>{
+            Mylibrary[index].toggleRead();
+            updateLibrary();
+            console.log('readed');
+            })
+        });
+//to make the delete button work
+        let deletebtn = document.querySelectorAll('.deletebtn');
+        deletebtn.forEach((btn,index) =>{
+            btn.addEventListener('click',()=>{
+            Mylibrary.splice(index,1);
+            updateLibrary();
+            })
+        });
+
 }
 
 function makeCard(name,writer,pages,readed){
-        let card = document.createElement('div');
-        let title = document.createElement('h1');
-        let author = document.createElement('h2');
-        let pageno = document.createElement('h2');
-        let states = document.createElement('h2');
+        let card    = document.createElement('div');
+        let title   = document.createElement('h1');
+        let author  = document.createElement('h2');
+        let pageno  = document.createElement('h2');
+        let states  = document.createElement('h2');
         let readbtn = document.createElement('button');
         card.classList.add('card');
-        title.textContent = name;
-        author.textContent  =  writer;
+        title.textContent  = name;
+        author.textContent = writer;
         pageno.textContent = pages;
         states.textContent = readed == true ? 'readed' : 'not readed';
         readbtn.classList.add('readed');
@@ -63,14 +82,13 @@ function makeCard(name,writer,pages,readed){
 
 
 let openform = document.querySelector('.addBooks');
-let modal = document.querySelector('.modal');
+let modal    = document.querySelector('.modal');
 
 openform.addEventListener('click',()=>{
     modal.showModal();
 })
 
-let closemodal = document.querySelector('.closemodal');
-console.log(closemodal)
+let closemodal  = document.querySelector('.closemodal');
 let newBookForm = document.querySelector('#newBookForm');
 
 newBookForm.addEventListener('submit',(e)=>{
@@ -89,26 +107,6 @@ newBookForm.addEventListener('submit',(e)=>{
     modal.close();
 })
 
-
-let deletebtn = document.querySelectorAll('.deletebtn');
-deletebtn.forEach((btn,index) =>{
-    btn.addEventListener('click',()=>{
-
-        Mylibrary.splice(index,1);
-        updateLibrary();
-
-    })
-});
-//how to get the element order from the foreach methode
-
 book.prototype.toggleRead = function(){
     this.readed = !this.readed;
 }
-let readedbtn = document.querySelectorAll('.readed');
-readedbtn.forEach((btn,index) =>{
-    btn.addEventListener('click',()=>{
-        Mylibrary[index].toggleRead();
-        updateLibrary();
-        console.log('readed');
-    })
-});
